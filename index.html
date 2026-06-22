@@ -19,7 +19,7 @@
     --gold:#e8b84b; --gold-soft:#f5d98a;
     --ink:#eef1fb; --muted:#9aa1bf;
     --atk:#ff4338; --grb:#3ddc84; --grd:#3fc6ff; --parry:#ffe27a;
-    --p1:#2f6bff; --p2:#ff5a8a;
+    --p1:#2f6bff; --p2:#e0312f;
     --hp-hi:#ff3b30;
     --display:Impact,"Haettenschweiler","Arial Narrow Bold","Franklin Gothic Bold",sans-serif;
     --ui:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -88,8 +88,8 @@
   .btn.atk{background:radial-gradient(circle at 38% 30%,#ff8a7e,#c41d12);}
   .btn.grd{background:radial-gradient(circle at 38% 30%,#86dcff,#137bb8);}
   .btn.grb{background:radial-gradient(circle at 38% 30%,#7ff0ad,#16934f);}
-  #pad1 .btn.atk{left:18%;top:32%;} #pad1 .btn.grd{left:49%;top:42%;} #pad1 .btn.grb{left:69%;top:68%;}
-  #pad2 .btn.atk{left:82%;top:32%;} #pad2 .btn.grd{left:51%;top:42%;} #pad2 .btn.grb{left:31%;top:68%;}
+  #pad1 .btn.atk{left:17%;top:41%;} #pad1 .btn.grd{left:48%;top:51%;} #pad1 .btn.grb{left:68%;top:77%;}
+  #pad2 .btn.atk{left:83%;top:41%;} #pad2 .btn.grd{left:52%;top:51%;} #pad2 .btn.grb{left:32%;top:77%;}
   .btn.held{transform:translate(-50%,-50%) scale(.9);box-shadow:0 0 0 4px #fff inset,0 0 26px var(--grd);filter:brightness(1.25);}
   .btn.locked{opacity:.34;filter:grayscale(.55);cursor:default;}
 
@@ -139,7 +139,7 @@
   .card .art{height:clamp(74px,11vw,118px);position:relative;}
   .card .art::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(255,255,255,.22),transparent 60%);}
   .card .meta{padding:10px 12px 14px;}
-  .card .cn{font-family:var(--display);font-style:italic;text-transform:uppercase;font-size:clamp(11px,1.8vw,20px);letter-spacing:.03em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .card .cn{font-family:var(--display);font-style:italic;text-transform:uppercase;font-size:clamp(11px,2vw,18px);letter-spacing:.01em;line-height:1.04;}
   .card .ct{font-size:clamp(9px,1.3vw,11px);color:var(--muted);text-transform:uppercase;letter-spacing:.13em;margin-top:3px;}
   .card .cu{font-size:clamp(10px,1.4vw,12px);margin-top:9px;color:var(--gold-soft);font-weight:600;}
   .card .cd{font-size:clamp(10px,1.3vw,12px);margin-top:3px;color:var(--muted);line-height:1.35;}
@@ -149,17 +149,17 @@
     filter:drop-shadow(0 6px 10px rgba(0,0,0,.45));}
   .card.drop{border-color:var(--gold);box-shadow:0 0 30px rgba(232,184,75,.4);transform:scale(1.03);}
   .card.sel0{border-color:var(--p1);box-shadow:0 0 26px rgba(47,107,255,.55);}
-  .card.sel1{border-color:var(--p2);box-shadow:0 0 26px rgba(255,90,138,.55);}
-  .card.sel0.sel1{box-shadow:0 0 26px rgba(47,107,255,.5),0 0 40px rgba(255,90,138,.4);}
+  .card.sel1{border-color:var(--p2);box-shadow:0 0 26px rgba(224,49,47,.6);}
+  .card.sel0.sel1{box-shadow:0 0 26px rgba(47,107,255,.5),0 0 40px rgba(224,49,47,.45);}
 
   #tokenrow{display:flex;gap:clamp(20px,5vw,46px);margin-top:18px;height:60px;align-items:center;justify-content:center;}
   #tokenrow .hint{position:absolute;transform:translateY(46px);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;}
   .token{width:clamp(46px,7vw,58px);height:clamp(46px,7vw,58px);border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-family:var(--display);font-style:italic;font-size:clamp(16px,2.6vw,21px);color:#fff;cursor:grab;touch-action:none;
+    font-family:var(--display);font-style:italic;font-size:clamp(16px,2.6vw,21px);line-height:1;text-align:center;color:#fff;cursor:grab;touch-action:none;
     border:3px solid rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(0,0,0,.5);user-select:none;
     transition:transform .12s,box-shadow .12s;text-shadow:0 1px 2px rgba(0,0,0,.5);}
   #tok0{background:radial-gradient(circle at 38% 30%,#a9c2ff,var(--p1));}
-  #tok1{background:radial-gradient(circle at 38% 30%,#ffc0d4,var(--p2));}
+  #tok1{background:radial-gradient(circle at 38% 30%,#ff9b8f,var(--p2));}
   .token.dragging{cursor:grabbing;transform:scale(1.14);box-shadow:0 9px 24px rgba(0,0,0,.6);z-index:60;}
   .token.placed{position:fixed;z-index:50;margin:0;}
 
@@ -170,8 +170,9 @@
   #result .rsub{color:var(--muted);margin-top:10px;font-size:clamp(13px,2vw,18px);letter-spacing:.06em;}
 
   #announce{position:absolute;inset:0;z-index:25;display:flex;align-items:center;justify-content:center;pointer-events:none;}
-  #announce span{font-family:var(--display);font-style:italic;text-transform:uppercase;font-size:clamp(34px,9vw,108px);
-    letter-spacing:.04em;line-height:.9;text-align:center;background:linear-gradient(180deg,#fff,var(--gold) 80%);
+  #announce span{font-family:var(--display);font-style:italic;text-transform:uppercase;font-size:clamp(28px,8vw,108px);
+    letter-spacing:.04em;line-height:.92;text-align:center;max-width:92vw;padding:0 3vw;box-sizing:border-box;
+    overflow-wrap:break-word;word-break:break-word;background:linear-gradient(180deg,#fff,var(--gold) 80%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     filter:drop-shadow(0 4px 0 rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(232,184,75,.4));opacity:0;transform:scale(.6);}
   #announce.go span{animation:announce 1.05s cubic-bezier(.18,.9,.2,1) forwards;}
@@ -721,6 +722,7 @@ let dragon=[null,null];
 const SIDE=[{x:-4.5, face:1, light:p1Light},{x:4.5, face:-1, light:p2Light}];
 function newPlayer(){ return {hp:CONFIG.HP, meter:0, wins:0, phase:'idle', move:null, t:0, dur:0, resolved:false,
   guardHeld:false, guardStart:0, stunUntil:0, freeze:false, minions:false, minionMesh:null, minionOrbits:null, minionNext:0,
+  burn:false, burnNext:0, slow:false, lifesteal:false, statusFxNext:0,
   anim:{body:0,neck:0,flap:0.16,wfwd:0,inw:0,roll:0,glow:0,sink:0,lunge:0,hit:0,wooze:0}, hitFlash:0}; }
 const P=[newPlayer(),newPlayer()];
 let pick=[null,null], phase='title', inputEnabled=false, round=1, timeLeft=CONFIG.ROUND_TIME, now=0;
@@ -845,6 +847,7 @@ function setupMatch(){ [0,1].forEach(i=>{ if(P[i].minionMesh){ scene.remove(P[i]
 function startRound(){ P[0].hp=P[1].hp=CONFIG.HP;
   [0,1].forEach(i=>{ const p=P[i]; p.phase='idle'; p.move=null; p.t=0; p.dur=0; p.resolved=false; p.guardHeld=false;
     p.stunUntil=0; p.freeze=false; p.hitFlash=0; if(p.minionMesh){scene.remove(p.minionMesh);p.minionMesh=null;} p.minionOrbits=null; p.minions=false;
+    p.burn=false; p.burnNext=0; p.slow=false; p.lifesteal=false; p.statusFxNext=0;
     p.anim.sink=0; p.anim.body=0; p.anim.neck=0; p.anim.hit=0; p.anim.wooze=0; p.anim.lunge=0; p.anim.roll=0;
     if(dragon[i]){ dragon[i].group.rotation.x=0; dragon[i].group.rotation.z=0; dragon[i].group.position.y=0; } });
   timeLeft=CONFIG.ROUND_TIME; $('roundlbl').textContent='Round '+round; phase='intro'; inputEnabled=false; syncHUD();
@@ -905,19 +908,24 @@ function resolveStrike(att){ const a=P[att], def=1-att, b=P[def]; a.resolved=tru
     else if(BEATS[a.move]===b.move){ win(att,def); } else { win(def,att); } } }
 function win(w,l){ const dmg=(P[w].move==='grab')?CONFIG.GRAB_DMG:CONFIG.HIT; applyDamage(l,dmg);
   addMeter(w,CONFIG.GAIN_WIN); addMeter(l,CONFIG.GAIN_LOSS); setRecover(w,CONFIG.WIN_RECOVER); if(P[l].hp>0) hitstun(l);
-  const c=TG[P[w].move]||0xffd24a; burst(midPoint(w,l),c,16,0.9,5); ring3d(midPoint(w,l),c); addShake(0.45); Sound.fx.hit(); }
+  const c=TG[P[w].move]||0xffd24a; burst(midPoint(w,l),c,16,0.9,5); ring3d(midPoint(w,l),c); addShake(0.45); Sound.fx.hit();
+  if(P[w].lifesteal && P[w].hp>0 && dragon[w]){ const ls=Math.max(2,Math.round(dmg*0.4)); heal(w,ls);
+    const hc=dragon[w].group.position.clone().setY(2.3); burst(hc,0x4fe39a,12,0.8,3.4); ring3d(hc,0x39d27a); } }
 
 function fireUltimate(i){ const p=P[i], foe=1-i, k=DRAGONS[pick[i]].ult.key;
   p.meter=0; p.phase='recover'; p.move='ult'; p.t=0; p.dur=520; p.guardHeld=false;
   const fpos=dragon[foe].group.position.clone().setY(2.2), spos=dragon[i].group.position.clone().setY(2.2);
   Sound.fx.ult(); announce(DRAGONS[pick[i]].ult.name);
-  if(k==='magma'){ applyDamage(foe,23); burst(fpos,0xff5a1a,40,1.3,8); ring3d(fpos,0xff8a3a); addShake(1.2); }
+  if(k==='magma'){ applyDamage(foe,23); P[foe].burn=true; P[foe].burnNext=now+800; P[foe].statusFxNext=now+120;
+    burst(fpos,0xff5a1a,46,1.4,8.5); burst(fpos,0xffd24a,18,1.0,5); ring3d(fpos,0xff8a3a); ring3d(fpos,0xffd24a); addShake(1.2); }
   else if(k==='ember'){ applyDamage(foe,17); P[foe].stunUntil=now+2200; P[foe].phase='recover'; P[foe].move='stunned'; P[foe].t=0; P[foe].dur=0;
     burst(fpos,0xff7a1a,34,1.1,7); ring3d(fpos,0xffb02e); addShake(0.7); }
-  else if(k==='freeze'){ P[foe].stunUntil=now+2400; P[foe].freeze=true; P[foe].phase='recover'; P[foe].move='stunned'; P[foe].t=0; P[foe].dur=0;
-    setTimeout(()=>{ if(P[foe].hp>0) applyDamage(foe,13); burst(fpos,0x9fd8ff,20,1,6); },500);
-    burst(fpos,0x5ec6ff,30,1,5); ring3d(fpos,0x9fd8ff); addShake(0.6); }
-  else if(k==='drain'){ applyDamage(foe,14); heal(i,7); burst(fpos,0x29b36b,24,1,5); burst(spos,0x8fe3b3,16,0.8,3); ring3d(spos,0x8fe3b3); addShake(0.5); }
+  else if(k==='freeze'){ P[foe].stunUntil=now+2400; P[foe].freeze=true; P[foe].slow=true; P[foe].statusFxNext=now+120;
+    P[foe].phase='recover'; P[foe].move='stunned'; P[foe].t=0; P[foe].dur=0;
+    setTimeout(()=>{ if(P[foe].hp>0) applyDamage(foe,13); burst(fpos,0x9fd8ff,22,1,6); },500);
+    burst(fpos,0x5ec6ff,34,1,5.5); burst(fpos,0xd8f1ff,16,0.8,3); ring3d(fpos,0x9fd8ff); ring3d(fpos,0x5ec6ff); addShake(0.6); }
+  else if(k==='drain'){ applyDamage(foe,14); heal(i,7); p.lifesteal=true;
+    burst(fpos,0x29b36b,28,1.1,5.5); burst(spos,0x8fe3b3,20,0.9,3.5); ring3d(fpos,0x29b36b); ring3d(spos,0x8fe3b3); addShake(0.5); }
   else if(k==='minions'){ p.minions=true; p.minionNext=now+1100;
     if(!p.minionMesh){ const mg=new THREE.Group(); mg.position.copy(dragon[i].group.position);
       // three distinct flight paths: different radius, ellipse, height, speed, direction, undulation
@@ -934,13 +942,25 @@ function fireUltimate(i){ const p=P[i], foe=1-i, k=DRAGONS[pick[i]].ult.key;
 
 /* ============================ UPDATE ============================ */
 function advance(i,dt){ const p=P[i]; if(phase!=='fight'&&phase!=='between') return; if(p.hp<=0) return; if(now<p.stunUntil) return;
+  const sdt = p.slow ? dt*0.55 : dt;                 // frozen-slowed: windups, strikes & recovery all crawl
   if(p.phase==='guard'){ }
-  else if(p.phase==='windup'){ p.t+=dt*1000; const dur=p.move==='grab'?CONFIG.GRB_WINDUP:CONFIG.ATK_WINDUP;
+  else if(p.phase==='windup'){ p.t+=sdt*1000; const dur=p.move==='grab'?CONFIG.GRB_WINDUP:CONFIG.ATK_WINDUP;
     if(p.t>=dur){ p.phase='strike'; p.t=0; resolveStrike(i); } }
-  else if(p.phase==='strike'){ p.t+=dt*1000; if(p.t>=CONFIG.STRIKE && p.phase==='strike') setRecover(i,CONFIG.WIN_RECOVER); }
-  else if(p.phase==='recover'){ p.t+=dt*1000; if(p.t>=p.dur){ p.phase='idle'; p.move=null; p.t=0; p.resolved=false; } }
+  else if(p.phase==='strike'){ p.t+=sdt*1000; if(p.t>=CONFIG.STRIKE && p.phase==='strike') setRecover(i,CONFIG.WIN_RECOVER); }
+  else if(p.phase==='recover'){ p.t+=sdt*1000; if(p.t>=p.dur){ p.phase='idle'; p.move=null; p.t=0; p.resolved=false; } }
   if(p.minions && now>=p.minionNext){ p.minionNext=now+1200; const foe=1-i;
     if(P[foe].hp>0){ applyDamage(foe,2); burst(dragon[foe].group.position.clone().setY(2.0),DRAGONS[pick[i]].body,6,0.6,3); } } }
+function tickStatus(i){ const p=P[i]; if(p.hp<=0) return; const dr=dragon[i]; if(!dr) return; const g=dr.group;
+  if(p.burn){                                                   // Vulkaris: small gradual burn damage + rising embers
+    if(now>=p.burnNext){ p.burnNext=now+1100; p.hp=Math.max(0,p.hp-1); p.hitFlash=Math.max(p.hitFlash,0.22);
+      if(p.hp<=0){ p.phase='ko'; p.move=null; } }
+    if(now>=p.statusFxNext){ p.statusFxNext=now+230;
+      const e=g.position.clone(); e.x+=(Math.random()-0.5)*1.5; e.z+=(Math.random()-0.5)*1.1; e.y=1.1+Math.random()*1.9;
+      burst(e, Math.random()<0.5?0xff6a1a:0xffb02e, 2, 0.4, 1.9); } }
+  else if(p.slow){                                              // Frostvayne: drifting frost motes
+    if(now>=p.statusFxNext){ p.statusFxNext=now+330;
+      const e=g.position.clone(); e.x+=(Math.random()-0.5)*1.7; e.z+=(Math.random()-0.5)*1.1; e.y=1.3+Math.random()*2.1;
+      burst(e, Math.random()<0.5?0x9fd8ff:0xd8f1ff, 2, 0.3, 1.1); } } }
 function checkRoundEnd(){ if(phase!=='fight') return;
   if(P[0].hp<=0&&P[1].hp<=0) endRound(P[0].hp>=P[1].hp?0:1);
   else if(P[1].hp<=0) endRound(0); else if(P[0].hp<=0) endRound(1);
@@ -993,6 +1013,12 @@ function poseDragon(i,time){ const dr=dragon[i]; if(!dr) return; const p=P[i], a
 
   const col=new THREE.Color(glowCol), m=dr.glowMats[0];
   m.emissive.copy(col); m.emissiveIntensity = an.glow*0.7 + 0.03;
+  if(p.hp>0){ const T2=performance.now();
+    if(p.burn){ const f=0.55+0.45*Math.sin(T2*0.013+i*1.7);                    // smouldering orange flicker
+      m.emissive.lerp(new THREE.Color(0xff5a1a),0.5); m.emissiveIntensity=Math.max(m.emissiveIntensity,0.3+0.3*f); }
+    else if(p.slow){ const f=0.5+0.5*Math.sin(T2*0.004+i);                     // steady icy cyan shimmer
+      m.emissive.lerp(new THREE.Color(0x7fc8ff),0.6); m.emissiveIntensity=Math.max(m.emissiveIntensity,0.32+0.12*f); }
+    if(p.lifesteal){ m.emissive.lerp(new THREE.Color(0x39d27a),0.16); m.emissiveIntensity=Math.max(m.emissiveIntensity,0.12); } }
   if(p.hitFlash>0.01){ m.emissive.lerp(new THREE.Color(0xffffff),p.hitFlash); m.emissiveIntensity=Math.max(m.emissiveIntensity,p.hitFlash); }
   if(p.minionMesh){ p.minionMesh.position.copy(g.position);
     if(p.minionOrbits){ const Tm=performance.now();
@@ -1027,7 +1053,7 @@ function syncHUD(){ [0,1].forEach(i=>{ const p=P[i];
 let prev=performance.now();
 function loop(t){ const dt=Math.min(0.05,(t-prev)/1000); prev=t; now=t;
   if(phase==='fight'){ timeLeft=Math.max(0,timeLeft-dt); $('timer').textContent=Math.ceil(timeLeft); $('timer').classList.toggle('low',timeLeft<=10); }
-  advance(0,dt); advance(1,dt); checkRoundEnd();
+  advance(0,dt); advance(1,dt); if(phase==='fight'){ tickStatus(0); tickStatus(1); } checkRoundEnd();
   if(dragon[0]) poseDragon(0,dt); if(dragon[1]) poseDragon(1,dt); updateFx(dt); updateArena(dt);
   updateBadges(0); updateBadges(1); syncHUD();
   shake=Math.max(0,shake-dt*2.5);
